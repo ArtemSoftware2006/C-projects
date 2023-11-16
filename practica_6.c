@@ -9,57 +9,63 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
+#include <windows.h>
+//Суммирование двух чисел
+int GetSum(int a, int b) {
+    return a + b;
+}
+//Нахождение максимального числа в массиве
+int GetMax(int *arr, int length) {
+    int max = 0;
+    for (int i = 0; i < length; i++)
+    {
+        if(*(arr + i) > max) 
+        {
+            max = *(arr + i);
+        }
+    }
+    return max;
+}
+//Обнуление максимального значения в каждой строке
+void ResetMaxInAllRows( int n_row, int n_column, int array[n_row][n_column]) {
+    for (int i = 0; i < n_row; i++) {
+        int max = 0;
+        int maxIndex = 0;
+        for (int j = 0; j < n_column; j++) {
+            if(array[i][j] > max) {
+                max = array[i][j];
+                maxIndex = j;
+            }
+        }
+
+        array[i][maxIndex] = 0;
+    }
+}
 
 int main(void)
 {
-    int i, j, min, counter;
+    char *locale = setlocale(LC_ALL, "ru_RU.utf8");
 
-    const int n = 100, m = 100;
-    int a[n][m];
-    printf("enter number of lines: ");
-    scanf("%d", &n);
-    printf("enter the number of columns: ");
-    scanf("%d", &m);
+    int a = 10;
+    int b = 20;
+    int arr[8] = {1,2,3,5,8,3,79,42};
+    int matrix[3][3] = {{1,2,3},{2,3,1},{3,2,1}};
 
-    for (i = 0; i < n; i++)
-        for (j = 0; j < m; j++)
-        {
-            a[i][j] = rand() % 21 - 10;
-            printf("a[%d][%d]=%d\n", i + 1, j + 1, a[i][j]);
-        }
+    printf("Сумма чисел %d и %d = %d\n", a, b, GetSum(a, b));
+    printf("Максимальное значение массива : %d\n", GetMax(arr, sizeof(arr) / sizeof(arr[0])));
 
-    for (i = 0; i < n; i++)
+    ResetMaxInAllRows(3, 3, matrix);
+
+    printf("Обнуление максимов в каждой строке в двумерном массиве : \n");
+
+    for (int i = 0; i < 3; i++)
     {
-        min = a[i][0];
-        counter = 0;
-        for (j = 0; j < m; j++)
+        for (int j = 0; j < 3; j++)
         {
-            if (a[i][j] < min)
-            {
-                min = a[i][j];
-                counter = 1;
-            }
-            else if (a[i][j] == min)
-                counter++;
+            printf("%d\t", matrix[i][j]);
         }
-        printf("number of minima in the line %d: %d\n", i + 1, counter);
+        printf("\n");
     }
-
-    for (j = 0; j < m; j++)
-    {
-        min = a[0][j];
-        counter = 0;
-        for (i = 0; i < n; i++)
-        {
-            if (a[i][j] < min)
-            {
-                min = a[i][j];
-                counter = 1;
-            }
-            else if (a[i][j] == min)
-                counter++;
-        }
-        printf("number of minimums in a column %d: %d\n", j + 1, counter);
-    }
-    return 0;
+    
 }
