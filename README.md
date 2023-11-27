@@ -28,10 +28,10 @@
 
 ## Теория
 - [ ] Изучить функции работы с символами
-    1. sizet_t strlen(const char* str) - количество символов в строке
-    2. int strcmp(const chat* str1, consr char* str2) - > 0, если первая строка меньше второй, < 0 если вторая строка больше второй (сравнение идёт в лексическом порядке)
-    3. char* strcpy(char *destination_str, const char *source_str) - копирование из строки source в строку destination
-    4. char *strstr(const char* string, const char* substring) - поиск подстроки в строке 
+    1. ```sizet_t strlen(const char* str)``` - количество символов в строке
+    2. ```int strcmp(const chat* str1, consr char* str2)``` - > 0, если первая строка меньше второй, < 0 если вторая строка больше второй (сравнение идёт в лексическом порядке)
+    3. ```char* strcpy(char *destination_str, const char *source_str)``` - копирование из строки source в строку destination
+    4. ```char *strstr(const char* string, const char* substring)```  - поиск подстроки в строке 
 
 # Практика 8 - Рекурсия
 
