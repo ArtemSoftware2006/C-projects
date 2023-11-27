@@ -16,7 +16,7 @@ int GetSum(int a, int b) {
     return a + b;
 }
 //Нахождение максимального числа в массиве
-int GetMax(int *arr, int length) {
+int GetMax(int arr[], int length) {
     int max = 0;
     for (int i = 0; i < length; i++)
     {
@@ -28,7 +28,7 @@ int GetMax(int *arr, int length) {
     return max;
 }
 //Обнуление максимального значения в каждой строке
-void ResetMaxInAllRows( int n_row, int n_column, int array[n_row][n_column]) {
+void ResetMaxInAllRows( int n_row, int n_column, int array[][n_column]) {
     for (int i = 0; i < n_row; i++) {
         int max = 0;
         int maxIndex = 0;

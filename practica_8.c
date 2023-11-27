@@ -1,14 +1,25 @@
-//8. Найти среднее геометрическое всех чисел в массиве.
-
 #include <stdio.h>
 #include <locale.h>
 #include <math.h>
+
+//8. Найти среднее геометрическое всех чисел в массиве.
+//
+//  Косвенная рекурсия
+//  Прямая рекурсия
+//  Обратная 
+//  Параллельная
+//  Хвостовая
+
+// Вывести
+//   Массив вывести рекурсивно
+//   Сделать что-то ещё рекусивно
+
 //Произведение элементов массива рекурсивно
-int multyOfArray(int *arr, int index, int length) {
-    if (index < length)
+int multyOfArray(int *arr, int length) {
+    if (length == 0)
     { 
-        index++;
-        return *arr * multyOfArray(arr + 1, index, length);
+        length--;
+        return *arr * multyOfArray(arr + 1, length);
     }
     return 1;
     
@@ -21,7 +32,7 @@ int main() {
     int arr[8] = {1, 2, 3, 4, 5, 6, 7, 10};
 
     //pow(number, 1/n) - корень n-ой степени из nгmber
-    float gemetricalProgression = pow(multyOfArray(arr, 0, length), 1.0 / length);
+    float gemetricalProgression = pow(multyOfArray(arr, length), 1.0 / length);
 
     printf("Ответ : %f", gemetricalProgression);
 

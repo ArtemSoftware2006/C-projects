@@ -2,14 +2,15 @@
 #include <locale.h>
 #include <stdio.h>
 //7. Сделать большими только гласные буквы;
+//Изучить строковые функции в СИ
 
 //Ищет гласные буквы и переводит их в верхний регистр
 void convertVolowesToUpper(char* str) {
     while (*str)
     {
-        if (*str == 'a' || *str == 'e' || *str == 'i' || *str == 'o' || *str == 'u' || *str == 'y')
+        if (*str == 'A' || *str == 'E' || *str == 'I' || *str == 'O' || *str == 'U' || *str == 'Y')
         {
-            *str = toupper(*str);
+            *str = tolower(*str);
         }
         str++;
     }
