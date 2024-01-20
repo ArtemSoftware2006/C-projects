@@ -12,7 +12,7 @@
 #include <locale.h>
 #include <windows.h>
 //Суммирование двух чисел
-int GetSum(int a, int b) {
+int Sum(int a, int b) {
     return a + b;
 }
 //Нахождение максимального числа в массиве
@@ -52,7 +52,7 @@ int main(void)
     int arr[8] = {1,2,3,5,8,3,79,42};
     int matrix[3][3] = {{1,2,3},{2,3,1},{3,2,1}};
 
-    printf("Сумма чисел %d и %d = %d\n", a, b, GetSum(a, b));
+    printf("Сумма чисел %d и %d = %d\n", a, b, Sum(a, b));
     printf("Максимальное значение массива : %d\n", GetMax(arr, sizeof(arr) / sizeof(arr[0])));
 
     ResetMaxInAllRows(3, 3, matrix);
